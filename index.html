@@ -72,6 +72,14 @@
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
   </audio>
 
+  <div id="music-overlay">
+  <p>Press SPACE to start the magic ✨</p>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
   <!-- Nav -->
   <nav>
     <a href="#hero">Home</a>
@@ -114,7 +122,7 @@
       <div class="story-card reveal" style="--rot:-2deg;">
         <div class="story-emoji">🌸</div>
         <h3>Cute Memories</h3>
-        <p>Every silly inside joke, every chaotic plan, every late night heart-to-heart — those memories live rent-free in my heart forever. I wouldn't trade a single one.</p>
+        <p>Our silly dates, my stupid jealousy, and you always being there to calm me down… those endless conversations where we left the whole world behind — no judgment, just the purest, most real form of friendship ❤️</p>
       </div>
       <div class="story-card reveal" style="--rot:2deg;">
         <div class="story-emoji">💌</div>
@@ -126,38 +134,47 @@
 
   <!-- GALLERY -->
   <section id="gallery">
-    <h2 class="section-heading reveal">Our Memories 📸</h2>
-    <div class="section-divider reveal">🌹 🌸 🌹</div>
-    <div class="gallery-grid reveal">
-      <div class="polaroid" style="--rot:-3deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">🚖</div>
-        <p class="polaroid-caption">Where it all began</p>
-      </div>
-      <div class="polaroid" style="--rot:2deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#ef9a9a);">🌸</div>
-        <p class="polaroid-caption">Our favorite spot</p>
-      </div>
-      <div class="polaroid" style="--rot:-1.5deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#f8bbd0,#f06292);">🎬</div>
-        <p class="polaroid-caption">Movie nights 🍿</p>
-      </div>
-      <div class="polaroid" style="--rot:3deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#e91e63);">✨</div>
-        <p class="polaroid-caption">9 whole years!</p>
-      </div>
-      <div class="polaroid" style="--rot:-2.5deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#f48fb1,#c2185b);">💌</div>
-        <p class="polaroid-caption">Long distance bestie</p>
-      </div>
-      <div class="polaroid" style="--rot:1.5deg;">
-        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#ff80ab);">🥺</div>
-        <p class="polaroid-caption">Pookie forever</p>
-      </div>
+  <h2 class="section-heading reveal">Our Memories 📸</h2>
+  <div class="section-divider reveal">🌹 🌸 🌹</div>
+
+  <div class="gallery-grid reveal">
+
+    <div class="polaroid" style="--rot:-3deg;">
+      <div class="polaroid-img" style="background-image:url('images/first.png');"></div>
+      <p class="polaroid-caption">Where it all began</p>
     </div>
-    <p style="text-align:center;margin-top:2rem;font-family:'Dancing Script',cursive;color:rgba(249,194,203,0.6);font-size:1.1rem;">
-      (add your real photos here pawan 🌹)
-    </p>
-  </section>
+
+    <div class="polaroid" style="--rot:2deg;">
+      <div class="polaroid-img" style="background-image:url('images/second.png');"></div>
+      <p class="polaroid-caption">Our favorite spot</p>
+    </div>
+
+    <div class="polaroid" style="--rot:-1.5deg;">
+      <div class="polaroid-img" style="background-image:url('images/third.png');"></div>
+      <p class="polaroid-caption">Movie nights 🍿</p>
+    </div>
+
+    <div class="polaroid" style="--rot:3deg;">
+      <div class="polaroid-img" style="background-image:url('images/fourth.png');"></div>
+      <p class="polaroid-caption">9 whole years!</p>
+    </div>
+
+    <div class="polaroid" style="--rot:-2.5deg;">
+      <div class="polaroid-img" style="background-image:url('images/fifth.png');"></div>
+      <p class="polaroid-caption">Long distance bestie</p>
+    </div>
+
+    <div class="polaroid" style="--rot:1.5deg;">
+      <div class="polaroid-img" style="background-image:url('images/sixth.png');"></div>
+      <p class="polaroid-caption">Pookie forever</p>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:2rem;font-family:'Dancing Script',cursive;color:rgba(249,194,203,0.6);font-size:1.1rem;">
+    9 years of memories… and still counting ❤️
+  </p>
+</section>
 
   <!-- LETTER -->
   <section id="letter">
@@ -236,11 +253,14 @@
               overflow: hidden;
             ">
               <!-- Replace this entire div with: <img src="YOUR_PHOTO.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
-              <span style="font-size:3.5rem;">🌹</span>
-              <p style="font-family:'Dancing Script',cursive;color:#fff;font-size:1rem;text-shadow:0 1px 6px rgba(0,0,0,0.3);padding:0 1rem;text-align:center;">
-                add your photo here 📸
-              </p>
+              <div class="polaroid" style="--rot:2deg;">
+                <div class="special-img">
+                <img src="images/seventh.png">
+                </div>
+                <p class="polaroid-caption">Forever us ❤️</p>
+                </div>
             </div>
+
 
             <p style="
               font-family:'Dancing Script',cursive;

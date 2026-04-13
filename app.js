@@ -27,14 +27,54 @@ function warnYes() {
   }, 500);
 }
 
+const overlay = document.getElementById("music-overlay");
+const audio = document.getElementById("bg-music");
+
+let started = false;
+
+function startMusic() {
+  if (!started) {
+    audio.volume = 0.4;
+    audio.play();
+    started = true;
+
+    // fade out overlay
+    overlay.style.opacity = "0";
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 600);
+  }
+}
+
+// Spacebar trigger
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    startMusic();
+  }
+});
+
+// Optional: click also works
+overlay.addEventListener("click", startMusic);
+
 // ===== LOCK SCREEN LOGIC =====
 const questions = [
   { q: "Are you Tanvi Kalra?", hint: "", answer: "yes" },
   { q: "What is 5 + 5?", hint: "", answer: "10" },
   { q: "The place I always wanted to go and will go with you", hint: "hint: it's a temple 🛕", answer: "akshay patr" },
-  { q: "The last movie we watched together?", hint: "", answer: "bhabhiji" },
+  { q: "The last movie we watched together?", hint: "", answer: "bhabiji ghar par hain" },
   { q: "Who is your bestie? 🥺", hint: "", answer: "pawan" }
 ];
+
+// function to check answer
+function checkAnswer(userAnswer, currentIndex) {
+  const correctAnswer = questions[currentIndex].answer;
+
+  if (userAnswer.trim().toLowerCase() === correctAnswer) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 let currentQ = 0;
 
