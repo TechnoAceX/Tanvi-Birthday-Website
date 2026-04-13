@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Tanvi 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+<!-- ======== LOCK SCREEN ======== -->
+<div id="lockScreen">
+  <canvas class="lock-petals-canvas" id="lockPetalCanvas"></canvas>
+
+  <!-- WARNING POPUP -->
+  <div id="warningScreen">
+    <div class="warn-card">
+      <div class="warn-alert-badge">⚠️ &nbsp;ALERT &nbsp;⚠️</div>
+      <p class="warn-label">Your account will be debited</p>
+      <div class="warn-amount">₹50,000</div>
+      <p class="warn-label">immediately upon entry</p>
+      <hr class="warn-divider">
+      <p class="warn-main-text">Do you trust your bestie enough<br>to continue?</p>
+      <p class="warn-sub-text">🥺❤️</p>
+      <div class="warn-btns">
+        <button class="warn-btn-yes" onclick="warnYes()">Yes, I trust my bestie ❤️</button>
+        <button class="warn-btn-no" onclick="warnNo()">No 😭</button>
+      </div>
+      <p class="warn-no-msg" id="warnNoMsg">Areee 😤 fake alert tha pookie… trust issues? 💔 try again 😂</p>
+    </div>
+  </div>
+
+  <!-- SECURITY QUESTIONS (hidden until warning dismissed) -->
+  <div class="lock-content hidden" id="lockContent">
+    <div class="lock-icon">🔐</div>
+    <h1 class="lock-title">Only my pookie Tanvi<br>can enter ❤️</h1>
+    <p class="lock-subtitle">a little surprise, just for you...</p>
+
+    <div class="lock-card">
+      <div class="progress-dots" id="progressDots"></div>
+
+      <div id="questionBox">
+        <div class="q-number" id="qNumber">Question 1 of 5</div>
+        <p class="q-text" id="qText"></p>
+        <p class="hint-text" id="qHint"></p>
+        <input type="text" class="lock-input" id="lockInput" placeholder="type your answer..." autocomplete="off" />
+        <br>
+        <button class="lock-btn" onclick="checkAnswer()">Enter 🌹</button>
+        <p class="wrong-msg" id="wrongMsg"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Unlock overlay for burst effect -->
+<div id="unlockOverlay">
+  <canvas id="burstCanvas" style="width:100%;height:100%;"></canvas>
+</div>
+
+<!-- ======== MAIN SITE ======== -->
+<div id="mainSite">
+
+  <canvas id="petalCanvas"></canvas>
+  <canvas id="heartBurstCanvas"></canvas>
+
+  <!-- Music -->
+  <button id="musicBtn" onclick="toggleMusic()" title="Toggle music">🎵</button>
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Nav -->
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#story">Our Story</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#letter">Letter</a>
+    <a href="#surprise">Surprise</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-roses">
+      <span class="big-rose" style="top:5%;left:2%;animation-delay:0s;">🌹</span>
+      <span class="big-rose" style="top:10%;right:3%;animation-delay:1.5s;">🌸</span>
+      <span class="big-rose" style="bottom:10%;left:5%;animation-delay:3s;">🌹</span>
+      <span class="big-rose" style="bottom:5%;right:2%;animation-delay:4.5s;">🌸</span>
+    </div>
+    <div class="floating-hearts" id="floatingHearts"></div>
+    <div class="hero-badge">✨ A Surprise Just For You ✨</div>
+    <h1 class="hero-title">Happy Birthday<br>Tanvi 🌹</h1>
+    <p class="hero-sub">my person, my chaos, my comfort</p>
+    <p class="hero-years">9 years of pookie friendship 🥺✨</p>
+  </section>
+
+  <!-- STORY -->
+  <section id="story">
+    <h2 class="section-heading reveal">Our Story</h2>
+    <div class="section-divider reveal">🌹 🤍 🌹</div>
+    <div class="story-grid">
+      <div class="story-card reveal" style="--rot:-1deg;">
+        <div class="story-emoji">🚖</div>
+        <h3>The Auto Ride</h3>
+        <p>It started with a shared auto — two strangers squeezed together, going somewhere but not knowing they were going toward a lifelong friendship. That ride changed everything.</p>
+      </div>
+      <div class="story-card reveal" style="--rot:1deg;">
+        <div class="story-emoji">💞</div>
+        <h3>Becoming Besties</h3>
+        <p>From that auto to becoming my whole world — you became the person I call for everything. The one I cry to, laugh with, and absolutely cannot imagine life without.</p>
+      </div>
+      <div class="story-card reveal" style="--rot:-2deg;">
+        <div class="story-emoji">🌸</div>
+        <h3>Cute Memories</h3>
+        <p>Every silly inside joke, every chaotic plan, every late night heart-to-heart — those memories live rent-free in my heart forever. I wouldn't trade a single one.</p>
+      </div>
+      <div class="story-card reveal" style="--rot:2deg;">
+        <div class="story-emoji">💌</div>
+        <h3>Pune But Still Close</h3>
+        <p>Miles apart but never distant. You took Pune by storm and I'm beyond proud of you. Distance is just a number when two hearts refuse to drift apart.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2 class="section-heading reveal">Our Memories 📸</h2>
+    <div class="section-divider reveal">🌹 🌸 🌹</div>
+    <div class="gallery-grid reveal">
+      <div class="polaroid" style="--rot:-3deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#f48fb1);">🚖</div>
+        <p class="polaroid-caption">Where it all began</p>
+      </div>
+      <div class="polaroid" style="--rot:2deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#ef9a9a);">🌸</div>
+        <p class="polaroid-caption">Our favorite spot</p>
+      </div>
+      <div class="polaroid" style="--rot:-1.5deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#f8bbd0,#f06292);">🎬</div>
+        <p class="polaroid-caption">Movie nights 🍿</p>
+      </div>
+      <div class="polaroid" style="--rot:3deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#e91e63);">✨</div>
+        <p class="polaroid-caption">9 whole years!</p>
+      </div>
+      <div class="polaroid" style="--rot:-2.5deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#f48fb1,#c2185b);">💌</div>
+        <p class="polaroid-caption">Long distance bestie</p>
+      </div>
+      <div class="polaroid" style="--rot:1.5deg;">
+        <div class="polaroid-img" style="background:linear-gradient(135deg,#fce4ec,#ff80ab);">🥺</div>
+        <p class="polaroid-caption">Pookie forever</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;font-family:'Dancing Script',cursive;color:rgba(249,194,203,0.6);font-size:1.1rem;">
+      (add your real photos here pawan 🌹)
+    </p>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter">
+    <h2 class="section-heading reveal">A Letter For You 💌</h2>
+    <div class="section-divider reveal">🌹 🤍 🌹</div>
+    <div class="letter-paper reveal">
+      <p class="letter-date">To my Tanvi, on her birthday ❤️</p>
+      <div class="letter-body">
+        <p>You're not just my best friend — you're my comfort person. The one I think of when something funny happens, when something breaks me, and every moment in between. You're the person who made me understand what "bestie" truly means.</p>
+
+        <p>Do you remember that auto ride? Neither of us knew that the universe was quietly doing something magical that day. Of all the people to share that ride with — it had to be you. And I'm so, so grateful it was.</p>
+
+        <p>Even from Pune, you're always with me. When I'm having a hard day, when I'm excited about something silly, when I just need someone who gets it — you're still the first person I reach for. Distance never managed to touch what we have.</p>
+
+        <p>Nine years, Tanvi. Nine years of your laughter, your chaos, your honesty, your warmth. Nine years of becoming the person I am, partly because you were there. I don't know a version of myself that doesn't love you deeply.</p>
+
+        <p>Thank you for 9 years of everything. For every memory, every fight we bounced back from, every hug, every voice note at 2 AM. Thank you for being my person.</p>
+
+        <p>On your birthday, I just want you to know — you are so deeply loved. Not just by me, but by everyone lucky enough to be in your world. You deserve every beautiful thing this year brings you. 🌹</p>
+
+        <p>Here's to many more years of being absolute pookies together. 🥺💖</p>
+      </div>
+      <p class="letter-sig">With all my love,<br>Pawan 🌹</p>
+    </div>
+  </section>
+
+  <!-- SURPRISE -->
+  <section id="surprise">
+    <h2 class="section-heading reveal">One More Thing... 🎁</h2>
+    <div class="section-divider reveal">🌹 💖 🌹</div>
+    <div class="reveal" style="text-align:center;">
+      <button id="surpriseBtn" onclick="triggerSurprise()">Click me pookie 🎁</button>
+
+      <!-- Surprise reveal card -->
+      <div id="surpriseReveal" style="display:none; margin-top:2.5rem; animation: fadeSlideUp 0.9s ease both;">
+        <div style="
+          max-width: 480px;
+          margin: 0 auto;
+          background: linear-gradient(135deg, rgba(180,16,58,0.13), rgba(255,255,255,0.04));
+          border: 1.5px solid rgba(232,41,74,0.35);
+          border-radius: 28px;
+          padding: 2.5rem 2rem;
+          position: relative;
+          overflow: hidden;
+        ">
+          <!-- Decorative corner roses -->
+          <span style="position:absolute;top:12px;left:16px;font-size:1.4rem;opacity:0.5;">🌹</span>
+          <span style="position:absolute;top:12px;right:16px;font-size:1.4rem;opacity:0.5;">🌹</span>
+          <span style="position:absolute;bottom:12px;left:16px;font-size:1.4rem;opacity:0.5;">🌸</span>
+          <span style="position:absolute;bottom:12px;right:16px;font-size:1.4rem;opacity:0.5;">🌸</span>
+
+          <!-- Polaroid photo frame -->
+          <div style="
+            background: #fff;
+            border-radius: 6px;
+            padding: 12px 12px 52px;
+            max-width: 300px;
+            margin: 0 auto 2rem;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 30px rgba(232,41,74,0.25);
+            transform: rotate(-1.5deg);
+            transition: transform 0.4s ease;
+          " onmouseover="this.style.transform='rotate(0deg) scale(1.03)'" onmouseout="this.style.transform='rotate(-1.5deg)'">
+
+            <!-- Photo placeholder — replace src with your real image -->
+            <div style="
+              width: 100%;
+              aspect-ratio: 1;
+              background: linear-gradient(135deg, #fce4ec 0%, #f48fb1 50%, #e91e63 100%);
+              border-radius: 4px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              gap: 0.5rem;
+              position: relative;
+              overflow: hidden;
+            ">
+              <!-- Replace this entire div with: <img src="YOUR_PHOTO.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"> -->
+              <span style="font-size:3.5rem;">🌹</span>
+              <p style="font-family:'Dancing Script',cursive;color:#fff;font-size:1rem;text-shadow:0 1px 6px rgba(0,0,0,0.3);padding:0 1rem;text-align:center;">
+                add your photo here 📸
+              </p>
+            </div>
+
+            <p style="
+              font-family:'Dancing Script',cursive;
+              color:#c0306a;
+              font-size:1.1rem;
+              text-align:center;
+              margin-top:10px;
+              line-height:1.3;
+            ">us, always ❤️</p>
+          </div>
+
+          <!-- Message -->
+          <p style="
+            font-family:'Dancing Script',cursive;
+            font-size:clamp(1.6rem,5vw,2.3rem);
+            color:#fff;
+            text-shadow:0 0 20px rgba(249,194,203,0.8);
+            margin-bottom:0.8rem;
+            line-height:1.3;
+          ">I'll always be your bestie ❤️</p>
+
+          <p style="
+            font-family:'Playfair Display',serif;
+            font-style:italic;
+            font-size:1rem;
+            color:rgba(255,210,220,0.85);
+            line-height:1.7;
+            max-width:340px;
+            margin:0 auto;
+          ">No matter what, no matter where —<br>always and forever, your pookie Pawan 🌹</p>
+
+          <!-- Mini hearts row -->
+          <p style="font-size:1.4rem;margin-top:1.2rem;letter-spacing:0.3rem;opacity:0.7;">💖 🌹 💖 🌹 💖</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with infinite ❤️ by your pookie Pawan</p>
+    <p style="font-size:0.9rem;margin-top:0.5rem;opacity:0.5;">🌹 Happy Birthday Tanvi 🌹</p>
+  </footer>
+
+</div>
+
+<!-- ======== SCRIPTS ======== -->
+<script src="app.js"></script>
+</body>
+</html>
