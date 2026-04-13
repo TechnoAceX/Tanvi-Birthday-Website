@@ -60,7 +60,7 @@ overlay.addEventListener("click", startMusic);
 const questions = [
   { q: "Are you Tanvi Kalra?", hint: "", answer: "yes" },
   { q: "What is 5 + 5?", hint: "", answer: "10" },
-  { q: "The place I always wanted to go and will go with you", hint: "hint: it's a temple 🛕", answer: "akshay patr" },
+  { q: "The place I always wanted to go and will go with you", hint: "hint: it's a temple 🛕", answer: "akshay patra" },
   { q: "The last movie we watched together?", hint: "", answer: "bhabiji ghar par hain" },
   { q: "Who is your bestie? 🥺", hint: "", answer: "pawan" }
 ];
